@@ -1,0 +1,14 @@
+{
+  "type": "default",
+  "config": {
+    "top_material": {
+      "Name": "choros:moon_turf"
+    },
+    "under_material": {
+      "Name": "choros:moon_turf"
+    },
+    "underwater_material": {
+      "Name": "choros:moon_turf"
+    }
+  }
+}

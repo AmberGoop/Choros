@@ -1,5 +1,8 @@
 package choros.choros;
 
+import choros.choros.registry.ChorosBiomes;
+import choros.choros.registry.ChorosBlocks;
+import choros.choros.registry.ChorosItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraftforge.common.MinecraftForge;
@@ -21,7 +24,7 @@ import java.util.stream.Collectors;
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod("choros")
 public class Choros {
-
+    public static final String MODID = "choros";
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
 
@@ -34,6 +37,10 @@ public class Choros {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::processIMC);
         // Register the doClientStuff method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
+
+        ChorosBlocks.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        ChorosItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        ChorosBiomes.toDictionary();
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);

@@ -1,0 +1,13 @@
+{
+  "type": "choros:moon",
+  "generator": {
+    "type": "minecraft:noise",
+    "settings": "choros:moon",
+    "seed": 0,
+    "biome_source": {
+      "type": "fixed",
+      "biome": "choros:moon_plains"
+
+    }
+  }
+}

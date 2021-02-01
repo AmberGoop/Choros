@@ -1,0 +1,49 @@
+{
+  "precipitation": "none",
+  "category": "plains",
+  "depth": 0.1,
+  "scale": 0.1,
+  "temperature": 0,
+  "temperature_modifier": "frozen",
+  "downfall": 0,
+  "effects": {
+    "fog_color": 0,
+    "foliage_color": 7568503,
+    "grass_color": 7568503,
+    "sky_color": 0,
+    "water_color": 342306,
+    "water_fog_color": 332810,
+    "grass_color_modifier": "none"
+  },
+  "surface_builder": "choros:moon_rock",
+  "carvers": {
+    "air": []
+  },
+  "features": [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    []
+  ],
+  "starts": [
+
+  ],
+  "spawners": {
+    "monster": [],
+    "creature": [],
+    "ambient": [],
+    "water_creature": [],
+    "water_ambient": [],
+    "misc": []
+  },
+  "player_spawn_friendly": false,
+  "spawn_costs": {
+
+  }
+}
