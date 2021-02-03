@@ -1,21 +1,21 @@
 package choros.choros;
 
+import choros.choros.data.ChorosBlockTags;
 import choros.choros.registry.ChorosBiomes;
 import choros.choros.registry.ChorosBlocks;
 import choros.choros.registry.ChorosFeatures;
 import choros.choros.registry.ChorosItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
-import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
+import net.minecraftforge.fml.event.lifecycle.*;
 import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
@@ -32,6 +32,7 @@ public class Choros {
     public Choros() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         bus.addListener(this::setup);
+        bus.addListener(this::gatherData);
 
         DeferredRegister<?>[] registers = {
           ChorosBlocks.BLOCKS,
@@ -51,6 +52,17 @@ public class Choros {
             ChorosFeatures.registerConfiguredFeatures();
 
             });
+    }
+
+    public void gatherData(GatherDataEvent event) {
+        DataGenerator generator = event.getGenerator();
+        ExistingFileHelper helper = event.getExistingFileHelper();
+
+
+        if(event.includeServer()) {
+            ChorosBlockTags blockTags = new ChorosBlockTags(generator, helper);
+            generator.addProvider(blockTags);
+        }
     }
 
 
