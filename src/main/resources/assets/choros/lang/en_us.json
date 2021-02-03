@@ -1,4 +1,7 @@
 {
   "block.choros.moon_turf": "Moon Turf",
-  "block.choros.moon_rock": "Moon Rock"
+  "block.choros.moon_rock": "Moon Rock",
+  "block.choros.lunar_ice_ore": "Lunar Ice",
+  "item.choros.ice_scraps": "Ice Scraps",
+  "itemGroup.choros_group" : "Choros Items"
 }
